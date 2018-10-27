@@ -1,0 +1,804 @@
+###############################################################################
+#
+# IAR ELF Linker V8.30.1.114/W32 for ARM                  09/Oct/2018  08:33:48
+# Copyright 2007-2018 IAR Systems AB.
+#
+#    Output file  =  C:\Users\dingz\Desktop\Can Bus\Debug\Exe\can.out
+#    Map file     =  C:\Users\dingz\Desktop\Can Bus\Debug\List\can.map
+#    Command line =  
+#        -f C:\Users\dingz\AppData\Local\Temp\EW96FD.tmp
+#        ("C:\Users\dingz\Desktop\Can Bus\Debug\Obj\can.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\key.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\led.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\main.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\misc.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\motor.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\ptl.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\startup_stm32f10x_md.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\stm32f10x_adc.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\stm32f10x_bkp.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\stm32f10x_can.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\stm32f10x_cec.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\stm32f10x_crc.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\stm32f10x_dac.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\stm32f10x_dbgmcu.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\stm32f10x_dma.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\stm32f10x_exti.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\stm32f10x_flash.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\stm32f10x_fsmc.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\stm32f10x_gpio.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\stm32f10x_i2c.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\stm32f10x_it.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\stm32f10x_iwdg.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\stm32f10x_pwr.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\stm32f10x_rcc.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\stm32f10x_rtc.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\stm32f10x_sdio.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\stm32f10x_spi.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\stm32f10x_tim.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\stm32f10x_usart.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\stm32f10x_wwdg.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\system_stm32f10x.o"
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\Obj\timer.o" --no_out_extension
+#        -o "C:\Users\dingz\Desktop\Can Bus\Debug\Exe\can.out" --map
+#        "C:\Users\dingz\Desktop\Can Bus\Debug\List\can.map" --config
+#        "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1
+#        ARM\arm\config\linker\ST\stm32f103xB.icf" --semihosting --entry
+#        __iar_program_start --vfe --text_out locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor                     = *
+__CPP_Exceptions              = Disabled
+__CPP_Language                = C++14
+__Heap_Handler                = DLMalloc
+__SystemLibrary               = DLib
+__dlib_dynamic_initialization = normal
+__dlib_version                = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The advanced heap was selected because the application calls memory
+allocation functions outside of system library functions, and there
+are calls to deallocation functions in the application.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x800'0000 { ro section .intvec };
+"P1":  place in [from 0x800'0000 to 0x801'ffff] { ro };
+define block CSTACK with size = 2K, alignment = 8 { };
+define block HEAP with size = 2K, alignment = 8 { };
+"P2":  place in [from 0x2000'0000 to 0x2000'4fff] {
+          rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+
+  Section                Kind         Address    Size  Object
+  -------                ----         -------    ----  ------
+"A0":                                            0xec
+  .intvec                ro code   0x800'0000    0xec  startup_stm32f10x_md.o [1]
+                                 - 0x800'00ec    0xec
+
+"P1":                                          0x378c
+  .text                  ro code   0x800'00ec  0x14e0  dlmalloc.o [2]
+  .text                  ro code   0x800'15cc     0x6  abort.o [2]
+  .text                  ro code   0x800'15d2    0x3a  zero_init3.o [4]
+  .text                  ro code   0x800'160c    0x2c  xgetmemchunk.o [2]
+  .text                  ro code   0x800'1638    0x14  exit.o [5]
+  .text                  ro code   0x800'164c   0x428  stm32f10x_can.o [1]
+  .text                  ro code   0x800'1a74   0x2c0  main.o [1]
+  .text                  ro code   0x800'1d34     0xa  cxxabi.o [3]
+  .text                  ro code   0x800'1d3e    0x1e  can.o [1]
+  .text                  ro code   0x800'1d5c    0xc0  timer.o [1]
+  .text                  ro code   0x800'1e1c    0x3c  led.o [1]
+  .text                  ro code   0x800'1e58    0xf0  key.o [1]
+  .text                  ro code   0x800'1f48   0x1a8  can.o [1]
+  .text                  ro code   0x800'20f0   0x190  motor.o [1]
+  .text                  ro code   0x800'2280    0x48  stm32f10x_rcc.o [1]
+  .text                  ro code   0x800'22c8    0x2a  main.o [1]
+  .text                  ro code   0x800'22f2    0x1c  main.o [1]
+  .text                  ro code   0x800'230e    0x20  main.o [1]
+  .text                  ro code   0x800'232e    0x2a  main.o [1]
+  .text                  ro code   0x800'2358    0x1c  ptl.o [1]
+  .text                  ro code   0x800'2374    0x42  main.o [1]
+  .text                  ro code   0x800'23b6    0x1c  main.o [1]
+  .text                  ro code   0x800'23d2    0x20  main.o [1]
+  .text                  ro code   0x800'23f2    0x4e  main.o [1]
+  .text                  ro code   0x800'2440    0x5e  main.o [1]
+  .text                  ro code   0x800'249e    0x1c  timer.o [1]
+  .text                  ro code   0x800'24ba    0x1e  key.o [1]
+  .text                  ro code   0x800'24d8    0xa0  cppinit.o [2]
+  .text                  ro code   0x800'2578     0xa  timer.o [1]
+  .text                  ro code   0x800'2582     0x2  key.o [1]
+  .text                  ro code   0x800'2584    0x7c  timer.o [1]
+  .text                  ro code   0x800'2600    0x14  timer.o [1]
+  .text                  ro code   0x800'2614    0x58  timer.o [1]
+  .text                  ro code   0x800'266c    0x5e  timer.o [1]
+  .text                  ro code   0x800'26ca     0x2  main.o [1]
+  .text                  ro code   0x800'26cc    0xde  stm32f10x_gpio.o [1]
+  .text                  ro code   0x800'27aa     0x2  main.o [1]
+  .text                  ro code   0x800'27ac    0x18  key.o [1]
+  .text                  ro code   0x800'27c4    0x20  timer.o [1]
+  .text                  ro code   0x800'27e4    0x2a  timer.o [1]
+  .text                  ro code   0x800'280e    0x16  key.o [1]
+  .text                  ro code   0x800'2824    0x78  misc.o [1]
+  .text                  ro code   0x800'289c    0x14  can.o [1]
+  .text                  ro code   0x800'28b0   0x100  stm32f10x_tim.o [1]
+  .text                  ro code   0x800'29b0    0x64  motor.o [1]
+  .text                  ro code   0x800'2a14    0x4c  motor.o [1]
+  .text                  ro code   0x800'2a60    0x2a  main.o [1]
+  .text                  ro code   0x800'2a8a     0x2  main.o [1]
+  .text                  ro code   0x800'2a8c    0x54  timer.o [1]
+  .text                  ro code   0x800'2ae0    0x16  key.o [1]
+  .text                  ro code   0x800'2af6     0x2  main.o [1]
+  .text                  ro code   0x800'2af8    0x24  newop_0.o [3]
+  .text                  ro code   0x800'2b1c    0x1a  timer.o [1]
+  .text                  ro code   0x800'2b36    0x18  timer.o [1]
+  .text                  ro code   0x800'2b4e     0xa  delop_0.o [3]
+  .text                  ro code   0x800'2b58     0x4  nomemory.o [3]
+  .text                  ro code   0x800'2b5c     0x4  heaptramp0.o [2]
+  .text                  ro code   0x800'2b60   0x170  ptl.o [1]
+  .text                  ro code   0x800'2cd0    0x2c  stm32f10x_crc.o [1]
+  .text                  ro code   0x800'2cfc    0xb0  rand.o [2]
+  .text                  ro code   0x800'2dac    0xf4  system_stm32f10x.o [1]
+  .rodata                const     0x800'2ea0    0xb8  motor.o [1]
+  .text                  ro code   0x800'2f58    0x98  main.o [1]
+  .text                  ro code   0x800'2ff0    0x90  main.o [1]
+  .rodata                const     0x800'3080    0x80  main.o [1]
+  .text                  ro code   0x800'3100    0x50  main.o [1]
+  .text                  ro code   0x800'3150    0x38  packbits_init_single.o [4]
+  .text                  ro code   0x800'3188    0x28  main.o [1]
+  .text                  ro code   0x800'31b0    0x28  main.o [1]
+  .text                  ro code   0x800'31d8    0x28  main.o [1]
+  .text                  ro code   0x800'3200    0x28  data_init.o [4]
+  .text                  ro code   0x800'3228    0x26  main.o [1]
+  .text                  ro code   0x800'324e    0x26  main.o [1]
+  .rodata                const     0x800'3274    0x24  key.o [1]
+  .rodata                const     0x800'3298    0x24  main.o [1]
+  .rodata                const     0x800'32bc    0x24  main.o [1]
+  .rodata                const     0x800'32e0    0x24  main.o [1]
+  .rodata                const     0x800'3304    0x24  main.o [1]
+  .rodata                const     0x800'3328    0x24  main.o [1]
+  .rodata                const     0x800'334c    0x24  main.o [1]
+  .rodata                const     0x800'3370    0x24  main.o [1]
+  .rodata                const     0x800'3394    0x24  main.o [1]
+  .rodata                const     0x800'33b8    0x24  timer.o [1]
+  .text                  ro code   0x800'33dc    0x24  main.o [1]
+  .iar.init_table        const     0x800'3400    0x24  - Linker created -
+  .text                  ro code   0x800'3424    0x20  key.o [1]
+  .text                  ro code   0x800'3444    0x20  main.o [1]
+  .text                  ro code   0x800'3464    0x20  cmain_call_ctors.o [4]
+  .text                  ro code   0x800'3484    0x1e  timer.o [1]
+  .text                  ro code   0x800'34a2     0x2  main.o [1]
+  .text                  ro code   0x800'34a4    0x1e  cmain.o [4]
+  .text                  ro code   0x800'34c2     0x4  low_level_init.o [2]
+  .text                  ro code   0x800'34c6     0x4  exit.o [2]
+  .text                  ro code   0x800'34ca     0x2  main.o [1]
+  .text                  ro code   0x800'34cc     0xe  cexit.o [4]
+  .text                  ro code   0x800'34da     0x2  main.o [1]
+  .text                  ro code   0x800'34dc    0x1c  main.o [1]
+  .text                  ro code   0x800'34f8    0x1c  main.o [1]
+  .text                  ro code   0x800'3514    0x1c  main.o [1]
+  .text                  ro code   0x800'3530    0x1a  key.o [1]
+  .text                  ro code   0x800'354a    0x1a  main.o [1]
+  .text                  ro code   0x800'3564    0x1a  main.o [1]
+  .text                  ro code   0x800'357e    0x1a  main.o [1]
+  .text                  ro code   0x800'3598    0x1a  main.o [1]
+  .text                  ro code   0x800'35b2    0x1a  main.o [1]
+  .text                  ro code   0x800'35cc    0x1a  main.o [1]
+  .text                  ro code   0x800'35e6    0x1a  main.o [1]
+  .text                  ro code   0x800'3600    0x1a  main.o [1]
+  .text                  ro code   0x800'361a    0x1a  timer.o [1]
+  .text                  ro code   0x800'3634    0x18  main.o [1]
+  .text                  ro code   0x800'364c    0x18  main.o [1]
+  .text                  ro code   0x800'3664    0x18  main.o [1]
+  .text                  ro code   0x800'367c    0x18  timer.o [1]
+  .text                  ro code   0x800'3694    0x14  key.o [1]
+  SHT$$PREINIT_ARRAY               0x800'36a8     0x0  <Block>
+  SHT$$INIT_ARRAY                  0x800'36a8    0x14  <Block>
+    .init_array          const     0x800'36a8     0x4  can.o [1]
+    .init_array          const     0x800'36ac     0x4  key.o [1]
+    .init_array          const     0x800'36b0     0x4  main.o [1]
+    .init_array          const     0x800'36b4     0x4  ptl.o [1]
+    .init_array          const     0x800'36b8     0x4  timer.o [1]
+  __iar_tls$$INIT_ARRAY            0x800'36bc     0x0  <Block>
+  .text                  ro code   0x800'36bc    0x10  main.o [1]
+  .text                  ro code   0x800'36cc    0x10  main.o [1]
+  .text                  ro code   0x800'36dc    0x10  main.o [1]
+  .text                  ro code   0x800'36ec    0x10  main.o [1]
+  .text                  ro code   0x800'36fc    0x10  main.o [1]
+  .text                  ro code   0x800'370c    0x10  main.o [1]
+  .text                  ro code   0x800'371c    0x10  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'372c    0x10  stm32f10x_it.o [1]
+  .text                  ro code   0x800'373c    0x10  timer.o [1]
+  .text                  ro code   0x800'374c    0x10  timer.o [1]
+  .text                  ro code   0x800'375c     0xc  main.o [1]
+  .text                  ro code   0x800'3768     0xc  ptl.o [1]
+  .text                  ro code   0x800'3774     0xc  timer.o [1]
+  .text                  ro code   0x800'3780     0xc  cstartup_M.o [4]
+  .text                  ro code   0x800'378c     0x6  main.o [1]
+  .text                  ro code   0x800'3792     0x4  key.o [1]
+  .text                  ro code   0x800'3796     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'379a     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'379e     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'37a2     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'37a6     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'37aa     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'37ae     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'37b2     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'37b6     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'37ba     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'37be     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'37c2     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'37c6     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'37ca     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'37ce     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'37d2     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'37d6     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'37da     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'37de     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'37e2     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'37e6     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'37ea     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'37ee     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'37f2     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'37f6     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'37fa     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'37fe     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'3802     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'3806     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'380a     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'380e     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'3812     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'3816     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'381a     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'381e     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'3822     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'3826     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'382a     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'382e     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'3832     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'3836     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'383a     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'383e     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'3842     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'3846     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'384a     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'384e     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'3852     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'3856     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'385a     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'385e     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'3862     0x4  startup_stm32f10x_md.o [1]
+  .text                  ro code   0x800'3866     0x2  main.o [1]
+  .text                  ro code   0x800'3868     0x2  timer.o [1]
+  .rodata                const     0x800'386a     0x1  unwind_debug.o [5]
+  .text                  ro code   0x800'386c     0x0  cstart_call_dtors.o [4]
+  .rodata                const     0x800'386c     0x0  zero_init3.o [4]
+  .rodata                const     0x800'386c     0x0  packbits_init_single.o [4]
+  Initializer bytes      const     0x800'386c     0xc  <for P2-1>
+                                 - 0x800'3878  0x378c
+
+"P2", part 1 of 3:                               0x4c
+  P2-1                            0x2000'0000    0x4c  <Init block>
+    .data                inited   0x2000'0000    0x30  key.o [1]
+    .data                inited   0x2000'0030    0x14  motor.o [1]
+    .data                inited   0x2000'0044     0x8  rand.o [2]
+                                - 0x2000'004c    0x4c
+
+"P2", part 2 of 3:                              0x328
+  .bss                   zero     0x2000'004c   0x1d8  dlmalloc.o [2]
+  .bss                   zero     0x2000'0224    0x84  rand.o [2]
+  .bss                   zero     0x2000'02a8     0xc  timer.o [1]
+  .bss                   zero     0x2000'02b8    0x34  can.o [1]
+  .bss                   zero     0x2000'02ec     0x4  timer.o [1]
+  .bss                   zero     0x2000'02f0    0x30  main.o [1]
+  .bss                   zero     0x2000'0320    0x28  ptl.o [1]
+  .bss                   zero     0x2000'0348    0x18  dlmalloc.o [2]
+  .bss                   zero     0x2000'0360     0x4  cppinit.o [2]
+  .bss                   zero     0x2000'0364     0x4  cppinit.o [2]
+  .bss                   zero     0x2000'0368     0x4  new.o [3]
+  .bss                   zero     0x2000'036c     0x4  xgetmemchunk.o [2]
+  .bss                   zero     0x2000'0370     0x2  can.o [1]
+  .bss                   zero     0x2000'0372     0x1  main.o [1]
+                                - 0x2000'0373   0x327
+
+"P2", part 3 of 3:                             0x11bc
+  .iar.dynexit                    0x2000'0374   0x1bc  <Block>
+    .iar.dynexit         uninit   0x2000'0374     0xc  cppinit.o [2]
+    .iar.dynexit         uninit   0x2000'0380   0x1b0  <Block tail>
+  CSTACK                          0x2000'0530   0x800  <Block>
+    CSTACK               uninit   0x2000'0530   0x800  <Block tail>
+  HEAP                            0x2000'0d30   0x800  <Block>
+    HEAP                 uninit   0x2000'0d30   0x800  <Block tail>
+                                - 0x2000'1530  0x11bc
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+   0x800'3878   0x801'ffff  0x1'c788
+  0x2000'1530  0x2000'4fff    0x3ad0
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x327:
+          0x2000'004c  0x327
+
+Copy/packbits (__iar_packbits_init_single3)
+    1 source range, total size 0xc (15% of destination):
+           0x800'386c    0xc
+    1 destination range, total size 0x4c:
+          0x2000'0000   0x4c
+
+Extra (__iar_cstart_call_ctors)
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                  ro code  ro data  rw data
+    ------                  -------  -------  -------
+command line/config:
+    -------------------------------------------------
+    Total:
+
+C:\Users\dingz\Desktop\Can Bus\Debug\Obj: [1]
+    can.o                       474        4       54
+    key.o                       422       47       48
+    led.o                        60
+    main.o                    2 322      420       49
+    misc.o                      120
+    motor.o                     576      187       20
+    ptl.o                       408        4       40
+    startup_stm32f10x_md.o      460
+    stm32f10x_can.o           1 064
+    stm32f10x_crc.o              44
+    stm32f10x_gpio.o            222
+    stm32f10x_it.o               16
+    stm32f10x_rcc.o              72
+    stm32f10x_tim.o             256
+    system_stm32f10x.o          244
+    timer.o                     890       40       16
+    -------------------------------------------------
+    Total:                    7 650      702      227
+
+dl7M_tln.a: [2]
+    abort.o                       6
+    cppinit.o                   160                20
+    dlmalloc.o                5 344               496
+    exit.o                        4
+    heaptramp0.o                  4
+    low_level_init.o              4
+    rand.o                      176        2      140
+    xgetmemchunk.o               44                 4
+    -------------------------------------------------
+    Total:                    5 742        2      660
+
+dlpp7M_tl_nc.a: [3]
+    cxxabi.o                     10
+    delop_0.o                    10
+    new.o                                           4
+    newop_0.o                    36
+    nomemory.o                    4
+    -------------------------------------------------
+    Total:                       60                 4
+
+rt7M_tl.a: [4]
+    cexit.o                      14
+    cmain.o                      30
+    cmain_call_ctors.o           32
+    cstart_call_dtors.o
+    cstartup_M.o                 12
+    data_init.o                  40
+    packbits_init_single.o       56
+    zero_init3.o                 58
+    -------------------------------------------------
+    Total:                      242
+
+shb_l.a: [5]
+    exit.o                       20
+    unwind_debug.o                         1
+    -------------------------------------------------
+    Total:                       20        1
+
+    Gaps                          1                 4
+    Linker created                        36    4 528
+-----------------------------------------------------
+    Grand Total:             13 715      741    5 423
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address   Size  Type      Object
+-----                       -------   ----  ----      ------
+.iar.dynexit$$Base      0x2000'0374          --   Gb  - Linker created -
+.iar.dynexit$$Limit     0x2000'0530          --   Gb  - Linker created -
+.iar.init_table$$Base    0x800'3400          --   Gb  - Linker created -
+.iar.init_table$$Limit   0x800'3424          --   Gb  - Linker created -
+?main                    0x800'34a5         Code  Gb  cmain.o [4]
+Async(std::function<void ()> const &)
+                         0x800'1cd9   0x1c  Code  Gb  main.o [1]
+BusFault_Handler         0x800'3733    0x2  Code  Gb  stm32f10x_it.o [1]
+CAN1_RX1_IRQHandler      0x800'2077   0x4c  Code  Gb  can.o [1]
+CAN_ClearITPendingBit    0x800'19f5   0x70  Code  Gb  stm32f10x_can.o [1]
+CAN_FilterInit           0x800'1757   0xb4  Code  Gb  stm32f10x_can.o [1]
+CAN_GetITStatus          0x800'193d   0xb8  Code  Gb  stm32f10x_can.o [1]
+CAN_ITConfig             0x800'192d   0x10  Code  Gb  stm32f10x_can.o [1]
+CAN_Init                 0x800'164d  0x10a  Code  Gb  stm32f10x_can.o [1]
+CAN_Receive              0x800'18af   0x7e  Code  Gb  stm32f10x_can.o [1]
+CAN_Transmit             0x800'180b   0xa4  Code  Gb  stm32f10x_can.o [1]
+CRC_CalcBlockCRC         0x800'2ce1   0x12  Code  Gb  stm32f10x_crc.o [1]
+CRC_CalcCRC              0x800'2cd9    0x8  Code  Gb  stm32f10x_crc.o [1]
+CRC_ResetDR              0x800'2cd1    0x8  Code  Gb  stm32f10x_crc.o [1]
+CSTACK$$Base            0x2000'0530          --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'0d30          --   Gb  - Linker created -
+Can::AddFilter(CanFilter &)
+                         0x800'1ff5   0x36  Code  Gb  can.o [1]
+Can::Fifo0n             0x2000'0370    0x1  Data  Gb  can.o [1]
+Can::Fifo1n             0x2000'0371    0x1  Data  Gb  can.o [1]
+Can::Init()              0x800'1f59   0x9c  Code  Gb  can.o [1]
+Can::OnReceive          0x2000'02c0   0x28  Data  Gb  can.o [1]
+Can::canMsg             0x2000'02e8    0x4  Data  Gb  can.o [1]
+Can::rec                0x2000'02b8    0x1  Data  Gb  can.o [1]
+DebugMon_Handler         0x800'3739    0x2  Code  Gb  stm32f10x_it.o [1]
+DtorRecArray            0x2000'0374    0xc  Data  Lc  cppinit.o [2]
+ExDac::Init()            0x800'20f1   0x1c  Code  Gb  motor.o [1]
+ExDac::Output(DacPort, unsigned char, Polarity)
+                         0x800'29b1   0x64  Code  Gb  motor.o [1]
+GPIO_Init                0x800'26cd   0xbc  Code  Gb  stm32f10x_gpio.o [1]
+GPIO_ReadInputData       0x800'2789    0x6  Code  Gb  stm32f10x_gpio.o [1]
+GPIO_ReadOutputData      0x800'278f    0x6  Code  Gb  stm32f10x_gpio.o [1]
+GPIO_ResetBits           0x800'2799    0x4  Code  Gb  stm32f10x_gpio.o [1]
+GPIO_SetBits             0x800'2795    0x4  Code  Gb  stm32f10x_gpio.o [1]
+GPIO_Write               0x800'27a7    0x4  Code  Gb  stm32f10x_gpio.o [1]
+GPIO_WriteBit            0x800'279d    0xa  Code  Gb  stm32f10x_gpio.o [1]
+HEAP$$Base              0x2000'0d30          --   Gb  - Linker created -
+HEAP$$Limit             0x2000'1530          --   Gb  - Linker created -
+HardFault_Handler        0x800'372f    0x2  Code  Gb  stm32f10x_it.o [1]
+Key::Init()              0x800'1e69   0x90  Code  Gb  key.o [1]
+Key::OnKeyEvent         0x2000'0008   0x28  Data  Gb  key.o [1]
+Key::Scan()              0x800'1ef9   0x38  Code  Gb  key.o [1]
+Key::Scan(){1}::preData
+                        0x2000'0000    0x1  Data  Lc  key.o [1]
+Led::Init()              0x800'1e1d   0x2c  Code  Gb  led.o [1]
+MemManage_Handler        0x800'3731    0x2  Code  Gb  stm32f10x_it.o [1]
+Motor::Direction        0x2000'0036    0x1  Data  Gb  motor.o [1]
+Motor::Init(DacPort, DacPort)
+                         0x800'210d   0x16  Code  Gb  motor.o [1]
+Motor::InvTime          0x2000'0038    0x4  Data  Gb  motor.o [1]
+Motor::Start()           0x800'2125   0x88  Code  Gb  motor.o [1]
+Motor::Step()            0x800'21d5   0x76  Code  Gb  motor.o [1]
+Motor::StepCount        0x2000'003c    0x4  Data  Gb  motor.o [1]
+Motor::Stop()            0x800'21ad   0x28  Code  Gb  motor.o [1]
+Motor::pa               0x2000'0032    0x2  Data  Gb  motor.o [1]
+Motor::pb               0x2000'0034    0x2  Data  Gb  motor.o [1]
+Motor::phase            0x2000'0040    0x4  Data  Gb  motor.o [1]
+Motor::running          0x2000'0030    0x1  Data  Gb  motor.o [1]
+NMI_Handler              0x800'372d    0x2  Code  Gb  stm32f10x_it.o [1]
+NVIC_Init                0x800'282f   0x5a  Code  Gb  misc.o [1]
+NVIC_PriorityGroupConfig
+                         0x800'2825    0xa  Code  Gb  misc.o [1]
+PendSV_Handler           0x800'373b    0x2  Code  Gb  stm32f10x_it.o [1]
+Ptl::OnStreamStart      0x2000'0320   0x28  Data  Gb  ptl.o [1]
+Ptl::ReceiveData(unsigned int, unsigned char *, unsigned char, unsigned char, unsigned int)
+                         0x800'2c19   0x88  Code  Gb  ptl.o [1]
+Ptl::SendData(unsigned int, unsigned char *, unsigned char)
+                         0x800'2b71   0xa8  Code  Gb  ptl.o [1]
+Ptl::SetStreamStartHandler(std::function<void (unsigned int, unsigned char, unsigned char, unsigned int)> const &)::[lambda(CanRxMsg &) (instance 1)]::operator ()(CanRxMsg &) const
+                         0x800'1a75   0x96  Code  Lc  main.o [1]
+QSin(int)                0x800'2a15   0x4c  Code  Gb  motor.o [1]
+RCC_AHBPeriphClockCmd    0x800'2281   0x14  Code  Gb  stm32f10x_rcc.o [1]
+RCC_APB1PeriphClockCmd   0x800'22a9   0x14  Code  Gb  stm32f10x_rcc.o [1]
+RCC_APB2PeriphClockCmd   0x800'2295   0x14  Code  Gb  stm32f10x_rcc.o [1]
+Region$$Table$$Base      0x800'3400          --   Gb  - Linker created -
+Region$$Table$$Limit     0x800'3424          --   Gb  - Linker created -
+SHT$$INIT_ARRAY$$Base    0x800'36a8          --   Gb  - Linker created -
+SHT$$INIT_ARRAY$$Limit   0x800'36bc          --   Gb  - Linker created -
+SHT$$PREINIT_ARRAY$$Base
+                         0x800'36a8          --   Gb  - Linker created -
+SHT$$PREINIT_ARRAY$$Limit
+                         0x800'36a8          --   Gb  - Linker created -
+SVC_Handler              0x800'3737    0x2  Code  Gb  stm32f10x_it.o [1]
+SysTick_Handler          0x800'1dcf   0x34  Code  Gb  timer.o [1]
+SystemInit               0x800'2dad   0xde  Code  Gb  system_stm32f10x.o [1]
+TIM2_IRQHandler          0x800'2255   0x24  Code  Gb  motor.o [1]
+TIM_ClearITPendingBit    0x800'2981    0x2  Code  Gb  stm32f10x_tim.o [1]
+TIM_Cmd                  0x800'293f   0x14  Code  Gb  stm32f10x_tim.o [1]
+TIM_GetITStatus          0x800'2969   0x14  Code  Gb  stm32f10x_tim.o [1]
+TIM_ITConfig             0x800'2953   0x10  Code  Gb  stm32f10x_tim.o [1]
+TIM_TimeBaseInit         0x800'28b1   0x8e  Code  Gb  stm32f10x_tim.o [1]
+Task                    0x2000'02f8   0x28  Data  Gb  main.o [1]
+TickHandler::TickHandler(TickHandler&&)
+                         0x800'2b1d   0x1a  Code  Gb  timer.o [1]
+TickHandler::TickHandler(const TickHandler&)
+                         0x800'2ae1   0x16  Code  Gb  key.o [1]
+TickHandler::TickHandler(std::function<void ()> const &, unsigned short)
+                         0x800'2615   0x58  Code  Gb  timer.o [1]
+Timer::Init()            0x800'1d75   0x5a  Code  Gb  timer.o [1]
+Timer::OnTick           0x2000'02a8    0xc  Data  Gb  timer.o [1]
+Timer::tick             0x2000'02ec    0x4  Data  Gb  timer.o [1]
+USB_LP_CAN1_RX0_IRQHandler
+                         0x800'202b   0x4c  Code  Gb  can.o [1]
+UsageFault_Handler       0x800'3735    0x2  Code  Gb  stm32f10x_it.o [1]
+Virtual function table for std::_Func_impl<Ptl::SetStreamStartHandler(std::function<void (unsigned int, unsigned char, unsigned char, unsigned int)> const &)::[lambda(CanRxMsg &) (instance 1)], std::allocator<int>, void, CanRxMsg &>
+                         0x800'3298   0x24  Data  Gb  main.o [1]
+Virtual function table for std::_Func_impl<Timer::Init()::[lambda() (instance 1)], std::allocator<int>, void, >
+                         0x800'33b8   0x24  Data  Gb  timer.o [1]
+Virtual function table for std::_Func_impl<main::[lambda() (instance 1)], std::allocator<int>, void, >
+                         0x800'3394   0x24  Data  Gb  main.o [1]
+Virtual function table for std::_Func_impl<main::[lambda(unsigned char, KeyEvent) (instance 1)], std::allocator<int>, void, unsigned char, KeyEvent>
+                         0x800'3304   0x24  Data  Gb  main.o [1]
+Virtual function table for std::_Func_impl<main::[lambda(unsigned char, KeyEvent) (instance 1)]::operator ()(unsigned char, KeyEvent) const::[lambda() (instance 1)], std::allocator<int>, void, >
+                         0x800'32bc   0x24  Data  Gb  main.o [1]
+Virtual function table for std::_Func_impl<main::[lambda(unsigned char, KeyEvent) (instance 1)]::operator ()(unsigned char, KeyEvent) const::[lambda() (instance 2)], std::allocator<int>, void, >
+                         0x800'32e0   0x24  Data  Gb  main.o [1]
+Virtual function table for std::_Func_impl<main::[lambda(unsigned int, unsigned char, unsigned char, unsigned int) (instance 1)], std::allocator<int>, void, unsigned int, unsigned char, unsigned char, unsigned int>
+                         0x800'3370   0x24  Data  Gb  main.o [1]
+Virtual function table for std::_Func_impl<main::[lambda(unsigned int, unsigned char, unsigned char, unsigned int) (instance 1)]::operator ()(unsigned int, unsigned char, unsigned char, unsigned int) const::[lambda() (instance 1)], std::allocator<int>, void, >
+                         0x800'3328   0x24  Data  Gb  main.o [1]
+Virtual function table for std::_Func_impl<main::[lambda(unsigned int, unsigned char, unsigned char, unsigned int) (instance 1)]::operator ()(unsigned int, unsigned char, unsigned char, unsigned int) const::[lambda() (instance 2)], std::allocator<int>, void, >
+                         0x800'334c   0x24  Data  Gb  main.o [1]
+Virtual function table for std::_Func_impl<void (*)(), std::allocator<int>, void, >
+                         0x800'3274   0x24  Data  Gb  key.o [1]
+_Rand_idx               0x2000'02a4    0x4  Data  Lc  rand.o [2]
+_Rand_rv                0x2000'0224   0x80  Data  Lc  rand.o [2]
+_Randinit               0x2000'0044    0x1  Data  Gb  rand.o [2]
+_Randseed               0x2000'0048    0x4  Data  Gb  rand.o [2]
+__aeabi_atexit           0x800'1d35    0xa  Code  Gb  cxxabi.o [3]
+__call_ctors             0x800'24d9   0x18  Code  Gb  cppinit.o [2]
+__call_dtors             0x800'2527    0xc  Code  Gb  cppinit.o [2]
+__call_dtors0            0x800'2533   0x36  Code  Gb  cppinit.o [2]
+__cexit_call_dtors       0x800'34cf         Code  Gb  cexit.o [4]
+__cmain                  0x800'34a5         Code  Gb  cmain.o [4]
+__cstart_call_dtors      0x800'386c         Data  Gb  cstart_call_dtors.o [4]
+__cxa_atexit             0x800'24f1   0x36  Code  Gb  cppinit.o [2]
+__data_GetMemChunk       0x800'160d   0x2c  Code  Gb  xgetmemchunk.o [2]
+__data_GetMemChunk::start
+                        0x2000'036c    0x4  Data  Lc  xgetmemchunk.o [2]
+__dso_handle            0x2000'0364    0x4  Data  Gb  cppinit.o [2]
+__exit                   0x800'1639   0x14  Code  Gb  exit.o [5]
+__iar_cstart_call_ctors
+                         0x800'3465   0x20  Code  Gb  cmain_call_ctors.o [4]
+__iar_data_init3         0x800'3201   0x28  Code  Gb  data_init.o [4]
+__iar_debug_exceptions   0x800'386a    0x1  Data  Gb  unwind_debug.o [5]
+__iar_dlfree             0x800'10cb  0x4f6  Code  Gb  dlmalloc.o [2]
+__iar_dlmalloc           0x800'0e15  0x2b6  Code  Gb  dlmalloc.o [2]
+__iar_packbits_init_single3
+                         0x800'3151   0x38  Code  Gb  packbits_init_single.o [4]
+__iar_program_start      0x800'3781         Code  Gb  cstartup_M.o [4]
+__iar_tls$$INIT_ARRAY$$Base
+                         0x800'36bc          --   Gb  - Linker created -
+__iar_tls$$INIT_ARRAY$$Limit
+                         0x800'36bc          --   Gb  - Linker created -
+__iar_zero_init3         0x800'15d3   0x3a  Code  Gb  zero_init3.o [4]
+__low_level_init         0x800'34c3    0x4  Code  Gb  low_level_init.o [2]
+__sti__routine           0x800'1f49   0x10  Code  Lc  can.o [1]
+__sti__routine           0x800'1e59   0x10  Code  Lc  key.o [1]
+__sti__routine           0x800'1b0b   0x10  Code  Lc  main.o [1]
+__sti__routine           0x800'2b61    0xe  Code  Lc  ptl.o [1]
+__sti__routine           0x800'1d5d   0x18  Code  Lc  timer.o [1]
+__vector_table           0x800'0000         Data  Gb  startup_stm32f10x_md.o [1]
+_call_main               0x800'34b1         Code  Gb  cmain.o [4]
+_exit                    0x800'34cd         Code  Gb  cexit.o [4]
+_gm_                    0x2000'004c  0x1d8  Data  Lc  dlmalloc.o [2]
+_main                    0x800'34bf         Code  Gb  cmain.o [4]
+abort                    0x800'15cd    0x6  Code  Gb  abort.o [2]
+add_segment              0x800'04b5  0x1f2  Code  Lc  dlmalloc.o [2]
+exit                     0x800'34c7    0x4  Code  Gb  exit.o [2]
+free                     0x800'2b5d    0x4  Code  Gb  heaptramp0.o [2]
+hasTask                 0x2000'02f0    0x1  Data  Gb  main.o [1]
+init_mparams             0x800'0107   0x32  Code  Lc  dlmalloc.o [2]
+init_top                 0x800'0139   0x36  Code  Lc  dlmalloc.o [2]
+lData                    0x800'30e0   0x20  Data  Lc  main.o [1]
+mData                    0x800'3080   0x60  Data  Lc  main.o [1]
+main                     0x800'1b1b  0x1be  Code  Gb  main.o [1]
+main::[lambda() const]::operator()() const->void::ledIndex
+                        0x2000'0372    0x1  Data  Lc  main.o [1]
+mparams                 0x2000'0348   0x18  Data  Lc  dlmalloc.o [2]
+next_abi_dtor_rec       0x2000'0360    0x4  Data  Lc  cppinit.o [2]
+operator delete (void *)
+                         0x800'2b4f    0xa  Code  Gb  delop_0.o [3]
+operator new (unsigned int)
+                         0x800'2af9   0x24  Code  Gb  newop_0.o [3]
+prepend_alloc            0x800'016f  0x346  Code  Lc  dlmalloc.o [2]
+rand                     0x800'2cfd   0x94  Code  Gb  rand.o [2]
+segment_holding          0x800'00ed   0x1a  Code  Lc  dlmalloc.o [2]
+srand                    0x800'2d91    0xa  Code  Gb  rand.o [2]
+std::_Func_class<void, >::_Reset_move(std::_Func_class<void, >&&)
+                         0x800'27e5   0x2a  Code  Gb  timer.o [1]
+std::_Func_class<void, >::_Tidy()
+                         0x800'249f   0x1c  Code  Gb  timer.o [1]
+std::_Func_class<void, CanRxMsg &>::_Reset_move(std::_Func_class<void, CanRxMsg &>&&)
+                         0x800'2a61   0x2a  Code  Gb  main.o [1]
+std::_Func_class<void, CanRxMsg &>::_Tidy()
+                         0x800'23b7   0x1c  Code  Gb  main.o [1]
+std::_Func_class<void, CanRxMsg &>::operator ()(CanRxMsg &) const
+                         0x800'289d   0x14  Code  Gb  can.o [1]
+std::_Func_class<void, unsigned char, KeyEvent>::_Reset_move(std::_Func_class<void, unsigned char, KeyEvent>&&)
+                         0x800'22c9   0x2a  Code  Gb  main.o [1]
+std::_Func_class<void, unsigned char, KeyEvent>::_Tidy()
+                         0x800'22f3   0x1c  Code  Gb  main.o [1]
+std::_Func_class<void, unsigned char, KeyEvent>::operator ()(unsigned char, KeyEvent) const
+                         0x800'280f   0x16  Code  Gb  key.o [1]
+std::_Func_class<void, unsigned int, unsigned char, unsigned char, unsigned int>::_Reset_move(std::_Func_class<void, unsigned int, unsigned char, unsigned char, unsigned int>&&)
+                         0x800'232f   0x2a  Code  Gb  main.o [1]
+std::_Func_class<void, unsigned int, unsigned char, unsigned char, unsigned int>::_Tidy()
+                         0x800'2359   0x1c  Code  Gb  ptl.o [1]
+std::_Func_impl<Ptl::SetStreamStartHandler(std::function<void (unsigned int, unsigned char, unsigned char, unsigned int)> const &)::[lambda(CanRxMsg &) (instance 1)], std::allocator<int>, void, CanRxMsg &>::_Copy(void *) const
+                         0x800'3635   0x18  Code  Gb  main.o [1]
+std::_Func_impl<Ptl::SetStreamStartHandler(std::function<void (unsigned int, unsigned char, unsigned char, unsigned int)> const &)::[lambda(CanRxMsg &) (instance 1)], std::allocator<int>, void, CanRxMsg &>::_Delete_this(bool)
+                         0x800'354b   0x1a  Code  Gb  main.o [1]
+std::_Func_impl<Ptl::SetStreamStartHandler(std::function<void (unsigned int, unsigned char, unsigned char, unsigned int)> const &)::[lambda(CanRxMsg &) (instance 1)], std::allocator<int>, void, CanRxMsg &>::_Do_call(CanRxMsg &)
+                         0x800'378d    0x6  Code  Gb  main.o [1]
+std::_Func_impl<Ptl::SetStreamStartHandler(std::function<void (unsigned int, unsigned char, unsigned char, unsigned int)> const &)::[lambda(CanRxMsg &) (instance 1)], std::allocator<int>, void, CanRxMsg &>::_Move(void *)
+                         0x800'36bd   0x10  Code  Gb  main.o [1]
+std::_Func_impl<Ptl::SetStreamStartHandler(std::function<void (unsigned int, unsigned char, unsigned char, unsigned int)> const &)::[lambda(CanRxMsg &) (instance 1)], std::allocator<int>, void, CanRxMsg &>::~_Func_impl()
+                         0x800'26cb    0x2  Code  Gb  main.o [1]
+std::_Func_impl<Timer::Init()::[lambda() (instance 1)], std::allocator<int>, void, >::_Copy(void *) const
+                         0x800'367d   0x18  Code  Gb  timer.o [1]
+std::_Func_impl<Timer::Init()::[lambda() (instance 1)], std::allocator<int>, void, >::_Delete_this(bool)
+                         0x800'361b   0x1a  Code  Gb  timer.o [1]
+std::_Func_impl<Timer::Init()::[lambda() (instance 1)], std::allocator<int>, void, >::_Do_call()
+                         0x800'374d   0x10  Code  Gb  timer.o [1]
+std::_Func_impl<Timer::Init()::[lambda() (instance 1)], std::allocator<int>, void, >::_Move(void *)
+                         0x800'373d   0x10  Code  Gb  timer.o [1]
+std::_Func_impl<Timer::Init()::[lambda() (instance 1)], std::allocator<int>, void, >::~_Func_impl()
+                         0x800'3869    0x2  Code  Gb  timer.o [1]
+std::_Func_impl<main::[lambda() (instance 1)], std::allocator<int>, void, >::_Copy(void *) const
+                         0x800'33dd   0x24  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda() (instance 1)], std::allocator<int>, void, >::_Delete_this(bool)
+                         0x800'3601   0x1a  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda() (instance 1)], std::allocator<int>, void, >::_Do_call()
+                         0x800'2ff1   0x90  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda() (instance 1)], std::allocator<int>, void, >::_Move(void *)
+                         0x800'3515   0x1c  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda() (instance 1)], std::allocator<int>, void, >::~_Func_impl()
+                         0x800'3867    0x2  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda(unsigned char, KeyEvent) (instance 1)], std::allocator<int>, void, unsigned char, KeyEvent>::_Delete_this(bool)
+                         0x800'3599   0x1a  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda(unsigned char, KeyEvent) (instance 1)], std::allocator<int>, void, unsigned char, KeyEvent>::_Do_call(unsigned char &&, KeyEvent &&)
+                         0x800'3101   0x50  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda(unsigned char, KeyEvent) (instance 1)], std::allocator<int>, void, unsigned char, KeyEvent>::_Move(void *)
+                         0x800'36ed   0x10  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda(unsigned char, KeyEvent) (instance 1)], std::allocator<int>, void, unsigned char, KeyEvent>::~_Func_impl()
+                         0x800'2af7    0x2  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda(unsigned char, KeyEvent) (instance 1)]::operator ()(unsigned char, KeyEvent) const::[lambda() (instance 1)], std::allocator<int>, void, >::_Copy(void *) const
+                         0x800'364d   0x18  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda(unsigned char, KeyEvent) (instance 1)]::operator ()(unsigned char, KeyEvent) const::[lambda() (instance 1)], std::allocator<int>, void, >::_Delete_this(bool)
+                         0x800'3565   0x1a  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda(unsigned char, KeyEvent) (instance 1)]::operator ()(unsigned char, KeyEvent) const::[lambda() (instance 1)], std::allocator<int>, void, >::_Do_call()
+                         0x800'36fd   0x10  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda(unsigned char, KeyEvent) (instance 1)]::operator ()(unsigned char, KeyEvent) const::[lambda() (instance 1)], std::allocator<int>, void, >::_Move(void *)
+                         0x800'36cd   0x10  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda(unsigned char, KeyEvent) (instance 1)]::operator ()(unsigned char, KeyEvent) const::[lambda() (instance 1)], std::allocator<int>, void, >::~_Func_impl()
+                         0x800'27ab    0x2  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda(unsigned char, KeyEvent) (instance 1)]::operator ()(unsigned char, KeyEvent) const::[lambda() (instance 2)], std::allocator<int>, void, >::_Copy(void *) const
+                         0x800'3665   0x18  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda(unsigned char, KeyEvent) (instance 1)]::operator ()(unsigned char, KeyEvent) const::[lambda() (instance 2)], std::allocator<int>, void, >::_Delete_this(bool)
+                         0x800'357f   0x1a  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda(unsigned char, KeyEvent) (instance 1)]::operator ()(unsigned char, KeyEvent) const::[lambda() (instance 2)], std::allocator<int>, void, >::_Do_call()
+                         0x800'370d   0x10  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda(unsigned char, KeyEvent) (instance 1)]::operator ()(unsigned char, KeyEvent) const::[lambda() (instance 2)], std::allocator<int>, void, >::_Move(void *)
+                         0x800'36dd   0x10  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda(unsigned char, KeyEvent) (instance 1)]::operator ()(unsigned char, KeyEvent) const::[lambda() (instance 2)], std::allocator<int>, void, >::~_Func_impl()
+                         0x800'2a8b    0x2  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda(unsigned int, unsigned char, unsigned char, unsigned int) (instance 1)], std::allocator<int>, void, unsigned int, unsigned char, unsigned char, unsigned int>::_Copy(void *) const
+                         0x800'31d9   0x28  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda(unsigned int, unsigned char, unsigned char, unsigned int) (instance 1)], std::allocator<int>, void, unsigned int, unsigned char, unsigned char, unsigned int>::_Delete_this(bool)
+                         0x800'35e7   0x1a  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda(unsigned int, unsigned char, unsigned char, unsigned int) (instance 1)], std::allocator<int>, void, unsigned int, unsigned char, unsigned char, unsigned int>::_Do_call(unsigned int &&, unsigned char &&, unsigned char &&, unsigned int &&)
+                         0x800'2f59   0x98  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda(unsigned int, unsigned char, unsigned char, unsigned int) (instance 1)], std::allocator<int>, void, unsigned int, unsigned char, unsigned char, unsigned int>::_Move(void *)
+                         0x800'3445   0x20  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda(unsigned int, unsigned char, unsigned char, unsigned int) (instance 1)], std::allocator<int>, void, unsigned int, unsigned char, unsigned char, unsigned int>::~_Func_impl()
+                         0x800'34db    0x2  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda(unsigned int, unsigned char, unsigned char, unsigned int) (instance 1)]::operator ()(unsigned int, unsigned char, unsigned char, unsigned int) const::[lambda() (instance 1)], std::allocator<int>, void, >::_Copy(void *) const
+                         0x800'3189   0x28  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda(unsigned int, unsigned char, unsigned char, unsigned int) (instance 1)]::operator ()(unsigned int, unsigned char, unsigned char, unsigned int) const::[lambda() (instance 1)], std::allocator<int>, void, >::_Delete_this(bool)
+                         0x800'35b3   0x1a  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda(unsigned int, unsigned char, unsigned char, unsigned int) (instance 1)]::operator ()(unsigned int, unsigned char, unsigned char, unsigned int) const::[lambda() (instance 1)], std::allocator<int>, void, >::_Do_call()
+                         0x800'3229   0x26  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda(unsigned int, unsigned char, unsigned char, unsigned int) (instance 1)]::operator ()(unsigned int, unsigned char, unsigned char, unsigned int) const::[lambda() (instance 1)], std::allocator<int>, void, >::_Move(void *)
+                         0x800'34dd   0x1c  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda(unsigned int, unsigned char, unsigned char, unsigned int) (instance 1)]::operator ()(unsigned int, unsigned char, unsigned char, unsigned int) const::[lambda() (instance 1)], std::allocator<int>, void, >::~_Func_impl()
+                         0x800'34a3    0x2  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda(unsigned int, unsigned char, unsigned char, unsigned int) (instance 1)]::operator ()(unsigned int, unsigned char, unsigned char, unsigned int) const::[lambda() (instance 2)], std::allocator<int>, void, >::_Copy(void *) const
+                         0x800'31b1   0x28  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda(unsigned int, unsigned char, unsigned char, unsigned int) (instance 1)]::operator ()(unsigned int, unsigned char, unsigned char, unsigned int) const::[lambda() (instance 2)], std::allocator<int>, void, >::_Delete_this(bool)
+                         0x800'35cd   0x1a  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda(unsigned int, unsigned char, unsigned char, unsigned int) (instance 1)]::operator ()(unsigned int, unsigned char, unsigned char, unsigned int) const::[lambda() (instance 2)], std::allocator<int>, void, >::_Do_call()
+                         0x800'324f   0x26  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda(unsigned int, unsigned char, unsigned char, unsigned int) (instance 1)]::operator ()(unsigned int, unsigned char, unsigned char, unsigned int) const::[lambda() (instance 2)], std::allocator<int>, void, >::_Move(void *)
+                         0x800'34f9   0x1c  Code  Gb  main.o [1]
+std::_Func_impl<main::[lambda(unsigned int, unsigned char, unsigned char, unsigned int) (instance 1)]::operator ()(unsigned int, unsigned char, unsigned char, unsigned int) const::[lambda() (instance 2)], std::allocator<int>, void, >::~_Func_impl()
+                         0x800'34cb    0x2  Code  Gb  main.o [1]
+std::_Func_impl<void (*)(), std::allocator<int>, void, >::_Copy(void *) const
+                         0x800'3425   0x20  Code  Gb  key.o [1]
+std::_Func_impl<void (*)(), std::allocator<int>, void, >::_Delete_this(bool)
+                         0x800'3531   0x1a  Code  Gb  key.o [1]
+std::_Func_impl<void (*)(), std::allocator<int>, void, >::_Do_call()
+                         0x800'3793    0x4  Code  Gb  key.o [1]
+std::_Func_impl<void (*)(), std::allocator<int>, void, >::_Move(void *)
+                         0x800'3695   0x14  Code  Gb  key.o [1]
+std::_Func_impl<void (*)(), std::allocator<int>, void, >::~_Func_impl()
+                         0x800'2583    0x2  Code  Gb  key.o [1]
+std::_NomemoryNothrow()
+                         0x800'2b59    0x4  Code  Gb  nomemory.o [3]
+std::_Vector_val<std::_Simple_types<TickHandler>>::_Vector_val()
+                         0x800'2579    0xa  Code  Gb  timer.o [1]
+std::__iar_New_hand     0x2000'0368    0x4  Data  Gb  new.o [3]
+std::function<void ()>& std::function<void ()>::operator =<const std::function<void ()>>(const std::function<void ()> &&)
+                         0x800'23f3   0x4e  Code  Gb  main.o [1]
+std::function<void ()>::function(const std::function<void ()>&)
+                         0x800'27c5   0x20  Code  Gb  timer.o [1]
+std::function<void ()>::function<Timer::Init()::[lambda() (instance 1)]>(Timer::Init()::[lambda() (instance 1)])
+                         0x800'2601   0x14  Code  Gb  timer.o [1]
+std::function<void ()>::function<void (*)()>(void (*)())
+                         0x800'27ad   0x18  Code  Gb  key.o [1]
+std::function<void ()>::~function()
+                         0x800'375d    0xc  Code  Gb  main.o [1]
+std::function<void (CanRxMsg &)>::function(const std::function<void (CanRxMsg &)>&)
+                         0x800'23d3   0x20  Code  Gb  main.o [1]
+std::function<void (CanRxMsg &)>::swap(std::function<void (CanRxMsg &)>&)
+                         0x800'2375   0x42  Code  Gb  main.o [1]
+std::function<void (CanRxMsg &)>::~function()
+                         0x800'1d3f   0x1e  Code  Gb  can.o [1]
+std::function<void (unsigned char, KeyEvent)>::~function()
+                         0x800'24bb   0x1e  Code  Gb  key.o [1]
+std::function<void (unsigned int, unsigned char, unsigned char, unsigned int)>::function(const std::function<void (unsigned int, unsigned char, unsigned char, unsigned int)>&)
+                         0x800'230f   0x20  Code  Gb  main.o [1]
+std::function<void (unsigned int, unsigned char, unsigned char, unsigned int)>::~function()
+                         0x800'3769    0xc  Code  Gb  ptl.o [1]
+std::vector<TickHandler, std::allocator<TickHandler>>::_Destroy(TickHandler *, TickHandler *)
+                         0x800'2b37   0x18  Code  Gb  timer.o [1]
+std::vector<TickHandler, std::allocator<TickHandler>>::_Reallocate(unsigned int)
+                         0x800'2585   0x7c  Code  Gb  timer.o [1]
+std::vector<TickHandler, std::allocator<TickHandler>>::_Reserve(unsigned int)
+                         0x800'2a8d   0x54  Code  Gb  timer.o [1]
+std::vector<TickHandler, std::allocator<TickHandler>>::_Tidy()
+                         0x800'3485   0x1e  Code  Gb  timer.o [1]
+std::vector<TickHandler, std::allocator<TickHandler>>::push_back(TickHandler &&)
+                         0x800'266d   0x5e  Code  Gb  timer.o [1]
+std::vector<TickHandler, std::allocator<TickHandler>>::push_back(TickHandler const &)
+                         0x800'2441   0x5e  Code  Gb  main.o [1]
+std::vector<TickHandler, std::allocator<TickHandler>>::~vector()
+                         0x800'3775    0xc  Code  Gb  timer.o [1]
+sys_alloc                0x800'06ad  0x164  Code  Lc  dlmalloc.o [2]
+sys_trim                 0x800'0811   0x64  Code  Lc  dlmalloc.o [2]
+tmalloc_large            0x800'0881  0x386  Code  Lc  dlmalloc.o [2]
+tmalloc_small            0x800'0c07  0x200  Code  Lc  dlmalloc.o [2]
+triValue                 0x800'2ea0   0xb8  Data  Lc  motor.o [1]
+
+
+[1] = C:\Users\dingz\Desktop\Can Bus\Debug\Obj
+[2] = dl7M_tln.a
+[3] = dlpp7M_tl_nc.a
+[4] = rt7M_tl.a
+[5] = shb_l.a
+
+  13 715 bytes of readonly  code memory
+     741 bytes of readonly  data memory
+   5 423 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

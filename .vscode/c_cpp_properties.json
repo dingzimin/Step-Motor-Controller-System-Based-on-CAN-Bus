@@ -1,0 +1,43 @@
+{
+    "configurations": [
+        {
+            "name": "stm32",
+            "browse": {
+                "path": [
+                    "C:/Program Files (x86)/Microsoft Visual Studio/2017/Enterprise/VC/Tools/MSVC/14.15.26726/include",
+                    "C:/Program Files (x86)/IAR Systems/Embedded Workbench 8.1 ARM/arm/inc/c",
+                    "C:/Program Files (x86)/IAR Systems/Embedded Workbench 8.1 ARM/arm/inc/cpp",
+                    "C:/Program Files (x86)/IAR Systems/Embedded Workbench 8.1 ARM/arm/CMSIS/Core/Include",
+                    "${workspaceFolder}",
+                    "${workspaceFolder}/sys",
+                    "${workspaceFolder}/lib",
+                    "${workspaceFolder}/lib/inc",
+                    "${workspaceFolder}/src"
+                ],
+                "limitSymbolsToIncludedHeaders": false
+            },
+            "includePath": [
+                "C:/Program Files (x86)/Microsoft Visual Studio/2017/Enterprise/VC/Tools/MSVC/14.15.26726/include",
+                "C:/Program Files (x86)/IAR Systems/Embedded Workbench 8.1 ARM/arm/inc/c",
+                "C:/Program Files (x86)/IAR Systems/Embedded Workbench 8.1 ARM/arm/inc/cpp",
+                "C:/Program Files (x86)/IAR Systems/Embedded Workbench 8.1 ARM/arm/CMSIS/Core/Include",
+                "${workspaceFolder}",
+                "${workspaceFolder}/sys",
+                "${workspaceFolder}/lib",
+                "${workspaceFolder}/lib/inc",
+                "${workspaceFolder}/src"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "__ICCARM__",
+                "STM32F10X_HD",
+                "USE_STDPERIPH_DRIVER"
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}
